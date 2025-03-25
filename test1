@@ -1,0 +1,49 @@
+import random
+import datetime
+
+class GitHubPracticeProject:
+    def __init__(self, project_name):
+        self.project_name = project_name
+        self.created_at = datetime.datetime.now()
+    
+    def generate_random_number(self, min_value=1, max_value=100):
+        """
+        Generate a random number between min and max values.
+        
+        Args:
+            min_value (int): Minimum value for random number generation
+            max_value (int): Maximum value for random number generation
+        
+        Returns:
+            int: Randomly generated number
+        """
+        return random.randint(min_value, max_value)
+    
+    def get_project_info(self):
+        """
+        Return basic information about the project.
+        
+        Returns:
+            dict: Project details
+        """
+        return {
+            "name": self.project_name,
+            "created_at": self.created_at,
+            "description": "A test project for learning GitHub workflow"
+        }
+
+def main():
+    # Create an instance of the project
+    test_project = GitHubPracticeProject("GitHub Learning Project")
+    
+    # Generate and print a random number
+    random_number = test_project.generate_random_number()
+    print(f"Random number generated: {random_number}")
+    
+    # Print project information
+    project_info = test_project.get_project_info()
+    for key, value in project_info.items():
+        print(f"{key.capitalize()}: {value}")
+
+if __name__ == "__main__":
+    main()
